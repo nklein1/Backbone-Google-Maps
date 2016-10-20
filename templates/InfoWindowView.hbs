@@ -1,0 +1,42 @@
+<script type="text/x-handlebars">
+  <div class="infoWindow">
+    <strong> {{name}} </strong><br />
+      <p> {{street1}} <br />
+        {{city}}, {{state}}, {{country}} <br />
+        <i>Provided Lat/Lng:</i> &nbsp; {{lat}}, {{lng}} <br />
+        <i>
+        <span class="help" title="Uses Google's Geocoding API to convert address to coordinates">
+          Geocoded
+        </span>
+        Lat/Lng:</i> &nbsp;
+        {{#if addrLatLngError}}
+          <i><span style="color:#B22222">{{addrLatLngError}}</span></i>
+        {{else}}
+          {{addrLat}}, {{addrLng}}
+        {{/if}}
+      </p>
+    <div class="flex-parent">
+      <div class="flex-child">
+        <i>Provided Coordinates:</i><br />
+        <div id="sv1" class="svBox"></div>
+        </a>
+      </div>
+      <div class="flex-child">
+        <i>
+          <span class="help" title="Uses Google's Geocoding API to convert address to coordinates">
+            Geocoded
+          </span>
+          Coordinates:
+        </i><br />
+        {{#if addrLatLngError}}
+          <div class="svBox">
+            <i><span style="color:#B22222">{{addrLatLngError}}</span></i>
+          </div>
+        {{else}}
+          <div id="sv2" class="svBox"></div>
+        {{/if}}
+        </a>
+      </div>
+    </div>
+  </div>
+</script>
